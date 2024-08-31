@@ -1,0 +1,600 @@
+[
+{
+  "dns": {
+    "hosts": {
+      "domain:googleapis.cn": "googleapis.com"
+    },
+    "servers": [
+      "1.1.1.1"
+    ]
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "enabled": true
+      },
+      "tag": "socks"
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 10809,
+      "protocol": "http",
+      "settings": {
+        "userLevel": 8
+      },
+      "tag": "http"
+    }
+  ],
+        "remarks": "WoW_1",
+  "log": {
+    "loglevel": "warning"
+  },
+
+
+
+  "outbounds": [
+    
+    {
+      "protocol": "wireguard",
+      "settings": {
+        "address": [
+          "172.16.0.2/32"
+        ],
+        "mtu": 1280,
+        "wnoise":"none",
+        "peers": [
+          {
+            "endpoint": "188.114.98.0:988",
+            "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+          }
+        ],
+        "reserved": [107,47,15],
+        "secretKey": "sCvmeko7th9HKSUjG81gciBecuey8tmOLqsh8mzmwVQ="
+      },
+      "streamSettings": {
+          "sockopt": {
+             "dialerProxy": "warpIR"
+          }
+       },
+      "tag": "warpMain"
+    },
+
+
+
+
+    {
+      "protocol": "wireguard",
+      "settings": {
+        "address": [
+          "172.16.0.2/32"
+        ],
+        "mtu": 1280,
+        "wnoise":"",
+        "wnoisedelay":"",
+        "wnoisecount":"",
+        "wpayloadsize":"",
+        "peers": [
+          {
+            "endpoint": "188.114.98.0:988",
+            "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+          }
+        ],
+        "reserved": [111,69,88],
+        "secretKey": "gPzke0gfRGZqRfYbEy8Iras1FujHLbaSM+8xMTVX1nE="
+      },      
+      "tag": "warpIR"
+    },
+
+
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      },
+      "tag": "block"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api",
+        "enabled": true
+      },
+
+      {
+        "ip": [
+          "1.1.1.1"
+        ],
+        "outboundTag": "warpMain",
+        "port": "53",
+        "type": "field"
+      },
+      
+      {
+        "id": "5627785659655799759",
+        "type": "field",
+        "port": "0-65535",
+        "outboundTag": "warpMain",
+        "enabled": true
+      }
+    ]
+  }
+},
+
+
+
+#---------------------------
+
+
+{
+  "dns": {
+    "hosts": {
+      "domain:googleapis.cn": "googleapis.com"
+    },
+    "servers": [
+      "8.8.8.8"
+    ]
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "enabled": true
+      },
+      "tag": "socks"
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 10809,
+      "protocol": "http",
+      "settings": {
+        "userLevel": 8
+      },
+      "tag": "http"
+    }
+  ],
+        "remarks": "WoW_2",
+  "log": {
+    "loglevel": "warning"
+  },
+
+
+
+  "outbounds": [
+    
+    {
+      "protocol": "wireguard",
+      "settings": {
+        "address": [
+          "172.16.0.2/32"
+        ],
+        "mtu": 1280,
+        "wnoise":"none",
+        "peers": [
+          {
+            "endpoint": "162.159.192.76:8854",
+            "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+          }
+        ],
+        "reserved": [107,47,15],
+        "secretKey": "sCvmeko7th9HKSUjG81gciBecuey8tmOLqsh8mzmwVQ="
+      },
+      "streamSettings": {
+          "sockopt": {
+             "dialerProxy": "warpIR"
+          }
+       },
+      "tag": "warpMain"
+    },
+
+
+
+
+    {
+      "protocol": "wireguard",
+      "settings": {
+        "address": [
+          "172.16.0.2/32"
+        ],
+        "mtu": 1280,
+        "wnoise":"",
+        "wnoisedelay":"",
+        "wnoisecount":"",
+        "wpayloadsize":"",
+        "peers": [
+          {
+            "endpoint": "162.159.192.76:8854",
+            "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+          }
+        ],
+        "reserved": [111,69,88],
+        "secretKey": "gPzke0gfRGZqRfYbEy8Iras1FujHLbaSM+8xMTVX1nE="
+      },      
+      "tag": "warpIR"
+    },
+
+
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      },
+      "tag": "block"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api",
+        "enabled": true
+      },
+
+      {
+        "ip": [
+          "1.1.1.1"
+        ],
+        "outboundTag": "warpMain",
+        "port": "53",
+        "type": "field"
+      },
+      
+      {
+        "id": "5627785659655799759",
+        "type": "field",
+        "port": "0-65535",
+        "outboundTag": "warpMain",
+        "enabled": true
+      }
+    ]
+  }
+},
+
+
+
+
+#-----------------------------
+
+{
+  "dns": {
+    "hosts": {
+      "domain:googleapis.cn": "googleapis.com"
+    },
+    "servers": [
+      "1.1.1.1"
+    ]
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "enabled": true
+      },
+      "tag": "socks"
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 10809,
+      "protocol": "http",
+      "settings": {
+        "userLevel": 8
+      },
+      "tag": "http"
+    }
+  ],
+        "remarks": "WoW_3",
+  "log": {
+    "loglevel": "warning"
+  },
+
+
+
+  "outbounds": [
+    
+    {
+      "protocol": "wireguard",
+      "settings": {
+        "address": [
+          "172.16.0.2/32"
+        ],
+        "mtu": 1280,
+        "wnoise":"none",
+        "peers": [
+          {
+            "endpoint": "162.159.195.212:1843",
+            "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+          }
+        ],
+        "reserved": [107,47,15],
+        "secretKey": "sCvmeko7th9HKSUjG81gciBecuey8tmOLqsh8mzmwVQ="
+      },
+      "streamSettings": {
+          "sockopt": {
+             "dialerProxy": "warpIR"
+          }
+       },
+      "tag": "warpMain"
+    },
+
+
+
+
+    {
+      "protocol": "wireguard",
+      "settings": {
+        "address": [
+          "172.16.0.2/32"
+        ],
+        "mtu": 1280,
+        "wnoise":"",
+        "wnoisedelay":"",
+        "wnoisecount":"",
+        "wpayloadsize":"",
+        "peers": [
+          {
+            "endpoint": "162.159.195.212:1843",
+            "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+          }
+        ],
+        "reserved": [111,69,88],
+        "secretKey": "gPzke0gfRGZqRfYbEy8Iras1FujHLbaSM+8xMTVX1nE="
+      },      
+      "tag": "warpIR"
+    },
+
+
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      },
+      "tag": "block"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api",
+        "enabled": true
+      },
+
+      {
+        "ip": [
+          "1.1.1.1"
+        ],
+        "outboundTag": "warpMain",
+        "port": "53",
+        "type": "field"
+      },
+      
+      {
+        "id": "5627785659655799759",
+        "type": "field",
+        "port": "0-65535",
+        "outboundTag": "warpMain",
+        "enabled": true
+      }
+    ]
+  }
+},
+
+
+
+#--------------------
+
+
+{
+  "dns": {
+    "hosts": {
+      "domain:googleapis.cn": "googleapis.com"
+    },
+    "servers": [
+      "8.8.8.8"
+    ]
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "enabled": true
+      },
+      "tag": "socks"
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 10809,
+      "protocol": "http",
+      "settings": {
+        "userLevel": 8
+      },
+      "tag": "http"
+    }
+  ],
+        "remarks": "WoW_4",
+  "log": {
+    "loglevel": "warning"
+  },
+
+
+
+  "outbounds": [
+    
+    {
+      "protocol": "wireguard",
+      "settings": {
+        "address": [
+          "172.16.0.2/32"
+        ],
+        "mtu": 1280,
+        "wnoise":"none",
+        "peers": [
+          {
+            "endpoint": "188.114.99.39:500",
+            "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+          }
+        ],
+        "reserved": [107,47,15],
+        "secretKey": "sCvmeko7th9HKSUjG81gciBecuey8tmOLqsh8mzmwVQ="
+      },
+      "streamSettings": {
+          "sockopt": {
+             "dialerProxy": "warpIR"
+          }
+       },
+      "tag": "warpMain"
+    },
+
+
+
+
+    {
+      "protocol": "wireguard",
+      "settings": {
+        "address": [
+          "172.16.0.2/32"
+        ],
+        "mtu": 1280,
+        "wnoise":"",
+        "wnoisedelay":"",
+        "wnoisecount":"",
+        "wpayloadsize":"",
+        "peers": [
+          {
+            "endpoint": "188.114.99.39:500",
+            "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+          }
+        ],
+        "reserved": [111,69,88],
+        "secretKey": "gPzke0gfRGZqRfYbEy8Iras1FujHLbaSM+8xMTVX1nE="
+      },      
+      "tag": "warpIR"
+    },
+
+
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      },
+      "tag": "block"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api",
+        "enabled": true
+      },
+
+      {
+        "ip": [
+          "1.1.1.1"
+        ],
+        "outboundTag": "warpMain",
+        "port": "53",
+        "type": "field"
+      },
+      
+      {
+        "id": "5627785659655799759",
+        "type": "field",
+        "port": "0-65535",
+        "outboundTag": "warpMain",
+        "enabled": true
+      }
+    ]
+  }
+}
+]
