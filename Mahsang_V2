@@ -156,7 +156,7 @@
       "domain:googleapis.cn": "googleapis.com"
     },
     "servers": [
-      "8.8.8.8"
+      "1.1.1.1"
     ]
   },
   "inbounds": [
@@ -458,7 +458,7 @@
       "domain:googleapis.cn": "googleapis.com"
     },
     "servers": [
-      "8.8.8.8"
+      "1.1.1.1"
     ]
   },
   "inbounds": [
